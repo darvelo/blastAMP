@@ -12,20 +12,20 @@
 The pin configuration on the ATmega88PA should be as follows.
 For a description of modes, or to change how modes work, check "MODES INFORMATION" in the defines below.
 
-01: PC6 - RESET w/ 1.5k+ resistor				28: PC5  - LED negative lead (mode 2)
-02: PD0 - RXD - UART receive					27: PC4  - LED negative lead (mode 1)
-03: PD1 - TXD - UART transmit					26: PC3  - LED negative lead (mode 0)
+01: PC6 - RESET w/ 1.5k+ resistor			28: PC5  - LED negative lead (mode 2)
+02: PD0 - RXD - UART receive				27: PC4  - LED negative lead (mode 1)
+03: PD1 - TXD - UART transmit				26: PC3  - LED negative lead (mode 0)
 04: PD2 - LED negative lead (reprogram LED)		25: PC2  - pushbutton switch positive lead (Reprogram Switch)
 05: PD3 - LED negative lead (infrared LED)		24: PC1  - pushbutton switch positive lead (Action Switch)
 06: PD4 - LED negative lead (mode 3)			23: PC0  - center tap of  5k+ potentiometer
-07: VCC - 5v									22: GND
-08: GND											21: AREF - 0.1uF capacitor
+07: VCC - 5v						22: GND
+08: GND							21: AREF - 0.1uF capacitor
 09: PB6 - 12 MHz crystal/22pf capacitor			20: AVCC - VCC
 10: PB7 - 12 MHz crystal/22pf capacitor			19: PB5  - SCK  (ISP)
 11: PD5 - LED negative lead (mode 4)			18: PB4  - MISO (ISP)
 12: PD6 - LED negative lead (mode 5)			17: PB3  - MOSI (ISP)
 13: PD7 - LED negative lead (mode 6)			16: PB2  - NC (not connected)
-14: PB0 - IR demodulator output pin				15: PB1  - NC
+14: PB0 - IR demodulator output pin			15: PB1  - NC
 
 */
 
@@ -57,21 +57,21 @@ For a description of modes, or to change how modes work, check "MODES INFORMATIO
 #define getirdata       3
 #define next_run        4
 
-#define IR_ReadPort	    PORTB
+#define IR_ReadPort	PORTB
 #define IR_PortDDR      DDRB
 
 //**  Stuff setup on PORTD
 #define IO_Port_Setup	DDRD
-#define IO_Port			PORTD
-#define IO_Pin			PIND
+#define IO_Port		PORTD
+#define IO_Pin		PIND
 
 #define reprogramLED	_BV(PD2)
-#define IRLED			_BV(PD3)
+#define IRLED		_BV(PD3)
 
 //** Stuff setup on PORTC
 #define Input_Port_Setup	DDRC
-#define Input_Port			PORTC
-#define Input_Pin			PINC
+#define Input_Port		PORTC
+#define Input_Pin		PINC
 
 
 // MODES INFORMATION
@@ -81,12 +81,12 @@ For a description of modes, or to change how modes work, check "MODES INFORMATIO
 // -- modes are switched while running by the ADC value of a potentiometer
 #define NUM_OF_MODES	7
 #define Comp2Piano      0
-#define Piano2Comp		1
-#define Power			2
-#define Function		3
-#define volUp			4
-#define volDown			5
-#define Special			6
+#define Piano2Comp	1
+#define Power		2
+#define Function	3
+#define volUp		4
+#define volDown		5
+#define Special		6
 
 #define SpecialPressed			bit_is_clear(Input_Pin, PC1)
 #define ReprogramPressed		bit_is_clear(Input_Pin, PC2)
@@ -538,7 +538,7 @@ int main(void)
       
 	// not sure if these are necessary but they were in the initial capture code from another project
     TIFR0        = TIFR0 | (1 << TOV0); //clear interrupt flag
-    TIFR1        = TIFR1 | (1 << TOV1); //clear T1 overflow flag©
+    TIFR1        = TIFR1 | (1 << TOV1); //clear T1 overflow flagï¿½
     TIFR1        = TIFR1 | (1 << ICF1); //clear input capture flag
 	
 
