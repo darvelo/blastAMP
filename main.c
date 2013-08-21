@@ -470,33 +470,22 @@ void checkMode(void)
 
 	mode = temp;
 
-	if (mode == 0) {		
-		IO_Port |= 0xF8; // disable all LEDs on PORT D
-		Input_Port |= 0x38;  // disable all LEDs on PORT C
+	IO_PORT |= 0xF8; // disable all LEDs on PORT D
+	Input_Port |= 0x38;  // disable all LEDs on PORT C
+
+	if (mode == 0) {
 		Input_Port &= ~(_BV(PC3)); // PC3 LED turn on
-	} else if (mode == 1) { 
-		IO_Port |= 0xF8; // disable all LEDs on PORT D
-		Input_Port |= 0x38;  // disable all LEDs on PORT C
+	} else if (mode == 1) {
 		Input_Port &= ~(_BV(PC4)); // PC4 LED turn on
-	} else if (mode == 2) { 
-		IO_Port |= 0xF8; // disable all LEDs on PORT D
-		Input_Port |= 0x38;  // disable all LEDs on PORT C
+	} else if (mode == 2) {
 		Input_Port &= ~(_BV(PC5)); // PC5 LED turn on
-	} else if (mode == 3) { 
-		IO_Port |= 0xF8; // disable all LEDs on PORT D
-		Input_Port |= 0x38;  // disable all LEDs on PORT C
+	} else if (mode == 3) {
 		IO_Port &= ~(_BV(PD4)); // PC4 LED turn on
-	} else if (mode == 4) { 
-		IO_Port |= 0xF8; // disable all LEDs on PORT D
-		Input_Port |= 0x38;  // disable all LEDs on PORT C
+	} else if (mode == 4) {
 		IO_Port &= ~(_BV(PD5)); // PD5 LED turn on
-	} else if (mode == 5) { 
-		IO_Port |= 0xF8; // disable all LEDs on PORT D
-		Input_Port |= 0x38;  // disable all LEDs on PORT C
+	} else if (mode == 5) {
 		IO_Port &= ~(_BV(PD6)); // PD6 LED turn on
-	} else if (mode == 6) { 
-		IO_Port |= 0xF8; // disable all LEDs on PORT D
-		Input_Port |= 0x38;  // disable all LEDs on PORT C
+	} else if (mode == 6) {
 		IO_Port &= ~(_BV(PD7)); // PD7 LED turn on
 	}	
 }
